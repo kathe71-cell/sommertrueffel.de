@@ -1,0 +1,32 @@
+import React from 'react';
+import { PortionCalculator } from '../components/PortionCalculator';
+import { Utensils, ExternalLink } from 'lucide-react';
+
+export const RechnerEmbed: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-[#faf9f6] p-2 sm:p-6 flex flex-col justify-between font-sans">
+      <div className="max-w-4xl mx-auto w-full">
+        <PortionCalculator />
+      </div>
+
+      <div className="max-w-4xl mx-auto w-full mt-4 pt-3 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+        <div className="flex items-center gap-1.5 font-medium">
+          <Utensils className="w-4 h-4 text-amber-600" />
+          <span>Sommertrüffel Portions- & Mengenrechner (Tuber aestivum) • Geprüfter Stand 2026</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <span>Bereitgestellt von</span>
+          <a
+            href="https://sommertrueffel.de"
+            target="_blank"
+            rel="noopener"
+            className="text-amber-800 font-bold hover:underline inline-flex items-center gap-0.5"
+          >
+            sommertrueffel.de
+            <ExternalLink className="w-3 h-3" />
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
