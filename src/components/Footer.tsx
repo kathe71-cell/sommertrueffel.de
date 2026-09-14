@@ -75,9 +75,9 @@ export const Footer: React.FC<FooterProps> = ({
               Rechtliche Hinweise & Betreiber
             </h4>
             <p className="text-slate-400 text-xs">
-              Jens Kathe • Hansastraße 6 • 34119 Kassel<br />
-              E-Mail: jens@kathe.org • Tel.: +49 178 6652623<br />
-              Kleinunternehmer nach § 19 UStG
+              Unabhängiges Fach- und Informationsportal.<br />
+              Kleinunternehmer nach § 19 UStG. Alle Angaben ohne Gewähr.<br />
+              Vollständige Betreiberangaben siehe Impressum.
             </p>
             <div className="flex gap-4 pt-2">
               <button

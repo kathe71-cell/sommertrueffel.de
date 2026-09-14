@@ -1,0 +1,18 @@
+# sommertrueffel.de – Fach- und Informationsportal für Sommertrüffel (Tuber aestivum)
+
+> Unabhängiges gastronomisches und warenkundliches Fachportal für Sommertrüffel (Tuber aestivum / Tuber uncinatum), Reifezeiten, sensorische Differenzierung und Grammatur-Kalkulation.
+
+## Kernfakten & Botanische Einordnung
+- **Wissenschaftlicher Name:** Tuber aestivum Vittad. (Sommertrüffel) / Tuber uncinatum Chatin (Burgundertrüffel/Herbsttrüffel)
+- **Hauptsaison:** Mai bis August (Sommertrüffel) bzw. September bis Januar (Burgundertrüffel)
+- **Peridie (Außenschicht):** Schwarz-braun, pyramidale Warzen, feste Textur
+- **Gleba (Fruchtfleisch):** Haselnussbraun bis kaffeebraun mit feiner weißer Äderung
+- **Aromatik:** Nussig, pilzig, erdig, dezent malzig – deutlich milder als Tuber melanosporum (Périgord)
+
+## Interaktive Werkzeuge
+- **/rechner-embed:** Interaktiver Portions- und Grammaturrechner (empfohlene Dosierung: 8–15 g pro Hauptgericht, 5–8 g für Vorspeisen).
+- **Trüffelfinder:** Sensorischer Kompass zur Unterscheidung von echten Sommertrüffeln und asiatischen Zuchtimitaten (Tuber indicum).
+
+## Rechtliche Hinweise & Transparenz
+- Anbieterkennzeichnung nach § 5 DDG unter /impressum.
+- Zero-CDN & 100 % DSGVO-konform ohne Cookie-Tracking.

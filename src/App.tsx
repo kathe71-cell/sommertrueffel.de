@@ -1,3 +1,4 @@
+import ScrollToTop from './components/ScrollToTop';
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -179,6 +180,7 @@ export const App: React.FC = () => {
       />
 
       <StickyMobileCta />
+      <ScrollToTop />
       <Analytics />
       <SpeedInsights />
     </div>
