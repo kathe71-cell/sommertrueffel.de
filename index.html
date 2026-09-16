@@ -47,7 +47,20 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@graph": [
+      "@graph": [,
+        {
+          "@type": "WebApplication",
+          "name": "Sommertrüffel Portionsrechner",
+          "url": "https://sommertrueffel.de/rechner-embed",
+          "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+          }
+        }
         {
           "@type": "WebSite",
           "@id": "https://sommertrueffel.de/#website",
