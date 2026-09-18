@@ -15,4 +15,4 @@
 
 ## Rechtliche Hinweise & Transparenz
 - Anbieterkennzeichnung nach § 5 DDG unter /impressum.
-- Zero-CDN & 100 % DSGVO-konform ohne Cookie-Tracking.
+- System-Schriftarten ohne Google-Fonts CDNs.

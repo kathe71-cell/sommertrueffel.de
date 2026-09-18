@@ -115,7 +115,7 @@ export const Footer: React.FC<FooterProps> = ({
           </p>
 
           <div className="pt-4 text-center text-slate-400 text-[10px]">
-            © {new Date().getFullYear()} sommertrueffel.de — Alle Rechte vorbehalten. 100% DSGVO-konform ohne externe Google-Fonts CDNs.
+            © {new Date().getFullYear()} sommertrueffel.de — Alle Rechte vorbehalten. System-Schriftarten-Stack ohne externe Google-Fonts CDNs.
           </div>
         </div>
 

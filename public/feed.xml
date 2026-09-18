@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sommertrueffel.de – Fachportal für Tuber aestivum & Sommertrüffel</title>
-    <link>https://sommertrueffel.de/</link>
+    <link>https://www.sommertrueffel.de/</link>
     <description>Unabhängiges Fachportal für Sommertrüffel (Tuber aestivum / Tuber uncinatum), Portionsrechner, Erntezeiten, Qualitätskriterien und Zubereitung.</description>
     <language>de-DE</language>
     <lastBuildDate>Mon, 14 Sep 2026 10:25:27 GMT</lastBuildDate>
-    <atom:link href="https://sommertrueffel.de/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://www.sommertrueffel.de/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Sommertrüffel Portionsrechner & Grammatur</title>
-      <link>https://sommertrueffel.de/rechner-embed</link>
+      <link>https://www.sommertrueffel.de/rechner-embed</link>
       <description>Interaktive Berechnung der optimalen Trüffelmenge je Gericht.</description>
       <pubDate>Mon, 14 Sep 2026 10:25:27 GMT</pubDate>
-      <guid>https://sommertrueffel.de/rechner-embed</guid>
+      <guid>https://www.sommertrueffel.de/rechner-embed</guid>
     </item>
     <item>
       <title>Warenkunde: Tuber aestivum vs. Tuber indicum</title>
-      <link>https://sommertrueffel.de/#guide</link>
+      <link>https://www.sommertrueffel.de/#guide</link>
       <description>Sichere sensorische Erkennungsmerkmale und Qualitätsstufen.</description>
       <pubDate>Mon, 14 Sep 2026 10:25:27 GMT</pubDate>
-      <guid>https://sommertrueffel.de/#guide</guid>
+      <guid>https://www.sommertrueffel.de/#guide</guid>
     </item>
   </channel>
 </rss>

@@ -174,8 +174,8 @@ export const SeasonGuide: React.FC = () => {
               <div className="flex items-start gap-3 bg-emerald-50/70 p-3.5 rounded-xl border border-emerald-200 text-xs text-emerald-950">
                 <CheckCircle2 className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="font-bold block">DO: Trocken bürsten</strong>
-                  Erde ausschließlich mit einer speziellen Trüffel- oder Rosshaarbürste sanft trocken abbürsten.
+                  <strong className="font-bold block">DO: Vorrangig trocken bürsten (kurzes Abspülen bei Bedarf)</strong>
+                  Erde zunächst mit einer feinen Trüffelbürste trocken entfernen. Bei hartnäckigen Erdanhaftungen in den Warzenrillen ist ein kurzes Abspülen unter fließendem kaltem Wasser mit sofortigem Trockentupfen fachlich anerkannt.
                 </div>
               </div>
 
@@ -183,23 +183,23 @@ export const SeasonGuide: React.FC = () => {
                 <CheckCircle2 className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5" />
                 <div>
                   <strong className="font-bold block">DO: Küchenpapier täglich wechseln</strong>
-                  Knolle in saugfähiges Küchenpapier wickeln und im Glas bei 2–4 °C kühlen. Kondenswasser täglich entfernen!
+                  Knolle in saugfähiges Küchenpapier wickeln und im Glas bei 2–4 °C kühlen. Feuchtigkeit und Kondenswasser täglich entfernen!
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 bg-red-50/70 p-3.5 rounded-xl border border-red-200 text-xs text-red-950">
-                <XCircle className="w-4 h-4 text-red-700 flex-shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 bg-amber-50/70 p-3.5 rounded-xl border border-amber-200 text-xs text-amber-950">
+                <XCircle className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="font-bold block">DON'T: Nicht im Wasserbad waschen</strong>
-                  Wasser saugt das empfindliche Gewebe voll und zerstört das feine Aroma innerhalb weniger Stunden.
+                  <strong className="font-bold block">DON'T: Kein langes Wasserbad</strong>
+                  Die Knolle niemals für längere Zeit ins Wasser legen – das Gewebe saugt sich voll und verliert an Aroma. Bei Bedarf nur kurz kalt abbrausen.
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 bg-red-50/70 p-3.5 rounded-xl border border-red-200 text-xs text-red-950">
-                <XCircle className="w-4 h-4 text-red-700 flex-shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 bg-amber-50/70 p-3.5 rounded-xl border border-amber-200 text-xs text-amber-950">
+                <XCircle className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="font-bold block">DON'T: Niemals mitkochen</strong>
-                  Sommertrüffel verliert bei Hitze über 50 °C fast das gesamte Aroma. Erst vor dem Servieren direkt auf den Teller hobeln!
+                  <strong className="font-bold block">DON'T: Nicht scharf anbraten</strong>
+                  Sommertrüffel verträgt zwar das sanfte Mitschwenken in lauwarmer Butter oder Risotto, sollte aber keinesfalls stark erhitzt oder scharf angebraten werden.
                 </div>
               </div>
             </div>

@@ -14,7 +14,7 @@
 | **Suchintention** | Kommerziell & Informational (Frischeknollen kaufen, Zubehör/Hobel, Grammaturen, Rezeptideen, Reifezeiten) |
 | **Modus** | **Multi-Provider / Nischen-Portal** mit Live-Finder, Portionsrechner & Experten-Ratgeber |
 | **Zielgruppe** | Feinschmecker, Hobbyköche, Gastronomen & Genießer im DACH-Raum |
-| **Rechtliche Konformität** | § 5 DDG & § 18 MStV konformes Impressum (Jens Kathe, Kassel), 100% DSGVO-Datenschutz |
+| **Rechtliche Konformität** | § 5 DDG & § 18 MStV konformes Impressum (Jens Kathe, Kassel), DSGVO-Datenschutzerklärung |
 
 ---
 
@@ -48,11 +48,11 @@
    - 8 detaillierte, mykologisch und gastronomisch fundierte Fragen & Antworten.
 8. **Rechtsseiten**:
    - `/impressum`: Vollständiges Impressum gemäß § 5 DDG und § 18 MStV mit Betreiber Jens Kathe (Hansastraße 6, 34119 Kassel), Kleinunternehmer nach § 19 UStG und OS-Schlichtungslink.
-   - `/datenschutz`: 100 % DSGVO-konforme Datenschutzerklärung.
+   - `/datenschutz`: Ausführliche Datenschutzerklärung inklusive Hosting, Analytics und Werbepartner.
 9. **Conversion & UX**:
    - Sticky Mobile Bar ab 400px Scrolltiefe.
    - WCAG AAA Kontraste (dunkle Schrift auf Amber-Buttons, weiße Schrift auf Slate-Buttons).
-   - Zero Google-Fonts CDN (100% DSGVO-sicher via System Font Stack).
+   - Keine Google-Fonts CDNs (System Font Stack).
 
 ---
 

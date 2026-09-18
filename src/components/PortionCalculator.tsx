@@ -209,7 +209,7 @@ export const PortionCalculator: React.FC = () => {
                 rel="noopener noreferrer nofollow"
                 className="w-full inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider py-3.5 px-4 rounded-xl shadow-md border border-amber-400 transition-all group"
               >
-                <span>Frische Sommertrüffel bei Amazon bestellen *</span>
+                <span>Passende Sommertrüffel auf Amazon suchen *</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </a>
 
@@ -219,14 +219,14 @@ export const PortionCalculator: React.FC = () => {
                 rel="noopener noreferrer nofollow"
                 className="w-full inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs uppercase tracking-wider py-2.5 px-4 rounded-xl border border-slate-700 transition-all"
               >
-                <span>Passenden Trüffelhobel ansehen *</span>
+                <span>Passende Trüffelhobel auf Amazon suchen *</span>
               </a>
             </div>
 
             {/* Legal Footnote for Calculations */}
             <div className="pt-2 border-t border-slate-800 text-[11px] text-slate-400 leading-relaxed">
               <p>
-                * Modellrechnung. Die tatsächliche Höhe hängt vom individuellen Nutzungsverhalten und den Konditionen des Anbieters ab. Tagesaktuelle Kilopreise für frische Sommertrüffel schwanken saisonbedingt je nach Witterung und Ernteaufkommen.
+                * Frei gewählte Modellrechnung / unverbindliche Rechenannahme (Basis: ca. 0,20 € bis 0,35 € pro Gramm bzw. 200 € bis 350 € pro Kilogramm, Erhebungsstand 2026). Die tatsächlichen Endpreise hängen von Tagespreisen, Sortierung, Ernteaufkommen und Anbieterkonditionen ab.
               </p>
             </div>
 

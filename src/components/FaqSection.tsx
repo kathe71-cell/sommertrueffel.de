@@ -9,7 +9,7 @@ interface FaqItem {
 const FAQS: FaqItem[] = [
   {
     question: 'Worin unterscheidet sich der Sommertrüffel (Tuber aestivum) vom Périgord-Trüffel?',
-    answer: 'Der Sommertrüffel wächst in den sonnigen Monaten von Mai bis September und liegt im frischen Handel bei moderaten ca. 0,20 € bis 0,35 € pro Gramm (ca. 200 € bis 350 € pro Kilogramm). Seine Gleba ist elfenbeinfarben bis hell haselnussbraun marmoriert und sein Geschmacksprofil feiner, nussig und waldig. Der schwarze Wintertrüffel (Périgord-Trüffel, Tuber melanosporum) reift hingegen von Dezember bis März, besitzt ein tiefschwarz-violettes Fleisch und ein drastisch intensiveres Aroma – weshalb er mit ca. 1.200 € bis 2.500 € pro Kilogramm ein Vielfaches kostet.'
+    answer: 'Der Sommertrüffel wächst in den sonnigen Monaten von Mai bis September und liegt im frischen Handel nach beispielhafter Modellannahme (Stand 2026) bei moderaten ca. 0,20 € bis 0,35 € pro Gramm bzw. ca. 200 € bis 350 € pro Kilogramm (tagespreis- und herkunftsabhängig). Seine Gleba ist elfenbeinfarben bis hell haselnussbraun marmoriert und sein Geschmacksprofil feiner, nussig und waldig. Der schwarze Wintertrüffel (Périgord-Trüffel, Tuber melanosporum) reift hingegen von Dezember bis März, besitzt ein tiefschwarz-violettes Fleisch und ein drastisch intensiveres Aroma – weshalb er mit ca. 1.200 € bis 2.500 € pro Kilogramm ein Vielfaches kostet.'
   },
   {
     question: 'Wie lange ist ein frischer Sommertrüffel nach der Lieferung haltbar?',

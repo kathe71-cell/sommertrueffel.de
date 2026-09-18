@@ -1,20 +1,45 @@
 import React from 'react';
 import { ArrowLeft, ShieldCheck, Mail, Phone, MapPin, Scale } from 'lucide-react';
+import { useDocumentMeta } from '../hooks/useDocumentMeta';
 
 interface ImpressumProps {
   onBack: () => void;
 }
 
 export const Impressum: React.FC<ImpressumProps> = ({ onBack }) => {
+  useDocumentMeta({
+    title: 'Impressum | sommertrueffel.de',
+    description: 'Impressum und Anbieterkennzeichnung nach § 5 DDG und § 18 MStV für sommertrueffel.de (Jens Kathe, Kassel).',
+    canonicalPath: '/impressum',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Startseite',
+          item: 'https://www.sommertrueffel.de/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Impressum',
+          item: 'https://www.sommertrueffel.de/impressum'
+        }
+      ]
+    }
+  });
+
   return (
     <div className="min-h-screen bg-[#faf9f6] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm transition-all mb-8 hover:border-amber-400"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm transition-all mb-8 hover:border-amber-400 cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" />
-          Zurück zur Startseite
+          <span>Zurück zur Startseite</span>
         </button>
 
         <div className="bg-white rounded-2xl p-8 sm:p-10 border border-slate-200 shadow-sm">

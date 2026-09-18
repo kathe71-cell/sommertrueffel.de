@@ -90,14 +90,14 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToFinder, onScrollToCalculat
               <span>* Amazon-Partnerlinks: Als Amazon-Partner verdienen wir an qualifizierten Verkäufen (ohne Mehrkosten für Sie).</span>
             </p>
 
-            {/* Position-0 Featured Snippet Definition Box */}
+            {/* Definition & Warenkunde Box */}
             <div className="mt-4 text-left bg-white border-l-4 border-amber-600 p-4 sm:p-5 rounded-r-xl shadow-xs border-y border-r border-slate-200">
               <div className="flex items-center gap-2 mb-2 text-xs font-extrabold uppercase tracking-wider text-amber-900">
                 <Utensils className="w-4 h-4 text-amber-700" />
-                <span>Definition &amp; Warenkunde (Position-0)</span>
+                <span>Definition &amp; Warenkunde</span>
               </div>
               <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
-                Der <strong className="text-slate-950 font-bold">Sommertrüffel</strong> (<em className="font-semibold">Tuber aestivum</em>) ist ein essbarer unterirdischer Schlauchpilz mit milder, nussiger Aromatik und hellbraun marmorierter Gleba. Die Erntezeit in Mittel- und Südeuropa erstreckt sich von Mai bis September mit geschmacklichem Höhepunkt im Hochsommer. Pro Hauptspeisenportion werden <strong className="text-slate-950 font-bold">10 bis 15 Gramm</strong> frisch über warme Speisen gehobelt, niemals mitgekocht.
+                Der <strong className="text-slate-950 font-bold">Sommertrüffel</strong> (<em className="font-semibold">Tuber aestivum</em>) ist ein essbarer unterirdischer Schlauchpilz mit milder, nussiger Aromatik und hellbraun marmorierter Gleba. Die Erntezeit in Mittel- und Südeuropa erstreckt sich von Mai bis September mit geschmacklichem Höhepunkt im Hochsommer. Pro Hauptspeisenportion werden <strong className="text-slate-950 font-bold">10 bis 15 Gramm</strong> frisch über warme Speisen gehobelt oder sanft in lauwarmer Butter aromatisiert.
               </p>
             </div>
           </div>
@@ -109,8 +109,8 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToFinder, onScrollToCalculat
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Steckbrief & Spezifikation
                 </span>
-                <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold border border-emerald-300">
-                  Botanisch geprüft
+                <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 text-xs font-bold border border-slate-300">
+                  Warenkunde & Fakten
                 </span>
               </div>
 

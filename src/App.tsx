@@ -1,9 +1,10 @@
-import ScrollToTop from './components/ScrollToTop';
 import React, { useState, useEffect } from 'react';
+import ScrollToTop from './components/ScrollToTop';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { TruffleFinder } from './components/TruffleFinder';
 import { PortionCalculator } from './components/PortionCalculator';
+import { TruffleBuyingCheck } from './components/TruffleBuyingCheck';
+import { TruffleFinder } from './components/TruffleFinder';
 import { SeasonGuide } from './components/SeasonGuide';
 import { RecipeSection } from './components/RecipeSection';
 import { FaqSection } from './components/FaqSection';
@@ -12,18 +13,82 @@ import { Footer } from './components/Footer';
 import { Impressum } from './pages/Impressum';
 import { Datenschutz } from './pages/Datenschutz';
 import { RechnerEmbed } from './pages/RechnerEmbed';
+import { RecipeDetail } from './pages/RecipeDetail';
+import { useDocumentMeta } from './hooks/useDocumentMeta';
 import { Code2, Copy, Check, ShieldCheck, Utensils, Award } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
-export const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<'home' | 'impressum' | 'datenschutz' | 'embed'>('home');
+const HomeMeta: React.FC = () => {
+  useDocumentMeta({
+    title: 'Sommertrüffel Ratgeber: Kaufen, Saison & Zubereitung',
+    description: 'Unabhängiger Ratgeber zu Sommertrüffeln (Tuber aestivum): Portionsrechner, 5-Punkte-Einkaufscheck, Saisonzeiten, Hobel-Tipps & 14 Rezeptideen.',
+    canonicalPath: '/',
+    schema: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': 'https://www.sommertrueffel.de/#website',
+          url: 'https://www.sommertrueffel.de/',
+          name: 'sommertrueffel.de',
+          description: 'Unabhängiger Ratgeber und Marktübersicht für frische Sommertrüffel (Tuber aestivum), Zubehör und Feinkost.',
+          inLanguage: 'de-DE'
+        },
+        {
+          '@type': 'Organization',
+          '@id': 'https://www.sommertrueffel.de/#organization',
+          name: 'sommertrueffel.de',
+          url: 'https://www.sommertrueffel.de/',
+          logo: 'https://www.sommertrueffel.de/favicon.svg'
+        },
+        {
+          '@type': 'BreadcrumbList',
+          '@id': 'https://www.sommertrueffel.de/#breadcrumb',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Startseite',
+              item: 'https://www.sommertrueffel.de/'
+            }
+          ]
+        }
+      ]
+    }
+  });
+  return null;
+};
+
+export const App: React.FC<{ initialPath?: string }> = ({ initialPath }) => {
+  const getInitialView = () => {
+    const path = (initialPath || (typeof window !== 'undefined' ? window.location.pathname : '/')).toLowerCase();
+    if (path.startsWith('/rezepte/')) return 'recipe';
+    if (path.includes('impressum') || path.includes('zimpressum')) return 'impressum';
+    if (path.includes('datenschutz')) return 'datenschutz';
+    if (path.includes('rechner-embed')) return 'embed';
+    return 'home';
+  };
+  const getInitialSlug = () => {
+    const path = (initialPath || (typeof window !== 'undefined' ? window.location.pathname : '/')).toLowerCase();
+    if (path.startsWith('/rezepte/')) {
+      return path.replace('/rezepte/', '').replace(/\/$/, '');
+    }
+    return '';
+  };
+  const [currentView, setCurrentView] = useState<'home' | 'impressum' | 'datenschutz' | 'embed' | 'recipe'>(getInitialView);
+  const [selectedRecipeSlug, setSelectedRecipeSlug] = useState<string>(getInitialSlug);
   const [copiedEmbed, setCopiedEmbed] = useState<boolean>(false);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const handlePopState = () => {
       const path = window.location.pathname.toLowerCase();
-      if (path.includes('impressum') || path.includes('zimpressum')) {
+      if (path.startsWith('/rezepte/')) {
+        const slug = path.replace('/rezepte/', '').replace(/\/$/, '');
+        setSelectedRecipeSlug(slug);
+        setCurrentView('recipe');
+      } else if (path.includes('impressum') || path.includes('zimpressum')) {
         setCurrentView('impressum');
       } else if (path.includes('datenschutz')) {
         setCurrentView('datenschutz');
@@ -50,8 +115,18 @@ export const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const navigateToRecipe = (slug: string) => {
+    setSelectedRecipeSlug(slug);
+    setCurrentView('recipe');
+    const path = `/rezepte/${slug}`;
+    if (window.location.pathname !== path) {
+      window.history.pushState({}, '', path);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const copyEmbedCode = () => {
-    const code = `<iframe src="https://sommertrueffel.de/rechner-embed" width="100%" height="680" style="border:none; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.08);" title="Sommertrüffel Portionsrechner"></iframe>\n<p style="font-size:12px; color:#64748b; text-align:center;">Portionsrechner bereitgestellt von <a href="https://sommertrueffel.de" target="_blank" rel="noopener" style="color:#b45309; text-decoration:underline;">sommertrueffel.de</a></p>`;
+    const code = `<iframe src="https://www.sommertrueffel.de/rechner-embed" width="100%" height="680" style="border:none; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.08);" title="Sommertrüffel Portionsrechner"></iframe>\n<p style="font-size:12px; color:#64748b; text-align:center;">Portionsrechner bereitgestellt von <a href="https://www.sommertrueffel.de" target="_blank" rel="noopener" style="color:#b45309; text-decoration:underline;">sommertrueffel.de</a></p>`;
     navigator.clipboard.writeText(code);
     setCopiedEmbed(true);
     setTimeout(() => setCopiedEmbed(false), 2500);
@@ -71,19 +146,52 @@ export const App: React.FC = () => {
   };
 
   if (currentView === 'embed') {
-    return <RechnerEmbed />;
+    return (
+      <>
+        <RechnerEmbed />
+        <Analytics />
+        <SpeedInsights />
+      </>
+    );
   }
 
   if (currentView === 'impressum') {
-    return <Impressum onBack={() => navigateTo('home')} />;
+    return (
+      <>
+        <Impressum onBack={() => navigateTo('home')} />
+        <Analytics />
+        <SpeedInsights />
+      </>
+    );
   }
 
   if (currentView === 'datenschutz') {
-    return <Datenschutz onBack={() => navigateTo('home')} />;
+    return (
+      <>
+        <Datenschutz onBack={() => navigateTo('home')} />
+        <Analytics />
+        <SpeedInsights />
+      </>
+    );
+  }
+
+  if (currentView === 'recipe') {
+    return (
+      <>
+        <RecipeDetail
+          slug={selectedRecipeSlug}
+          onBack={() => navigateTo('home')}
+          onSelectRecipe={navigateToRecipe}
+        />
+        <Analytics />
+        <SpeedInsights />
+      </>
+    );
   }
 
   return (
     <div className="min-h-screen flex flex-col bg-[#faf9f6]">
+      <HomeMeta />
       <Header
         onNavigateImpressum={() => navigateTo('impressum')}
         onNavigateDatenschutz={() => navigateTo('datenschutz')}
@@ -95,8 +203,15 @@ export const App: React.FC = () => {
           onScrollToFinder={() => scrollToElement('finder')}
           onScrollToCalculator={() => scrollToElement('rechner')}
         />
-        <TruffleFinder />
+
+        {/* 1. Portionsrechner: Höchster unmittelbarer Nutzen direkt oben */}
         <PortionCalculator />
+
+        {/* 2. Einkaufs-Check: Transparente Kriterien vor dem Kauf */}
+        <TruffleBuyingCheck />
+
+        {/* 3. Marktübersicht & Suchideen */}
+        <TruffleFinder />
 
         {/* Embed Code Widget Box */}
         <section className="py-12 bg-slate-900 text-white">
@@ -122,14 +237,19 @@ export const App: React.FC = () => {
                 </button>
               </div>
               <div className="bg-slate-900 rounded-lg p-3 text-xs font-mono text-slate-300 overflow-x-auto border border-slate-800">
-                <code>{`<iframe src="https://sommertrueffel.de/rechner-embed" width="100%" height="680" style="border:none; border-radius:16px;" title="Sommertrüffel Portionsrechner"></iframe>\n<p style="font-size:12px; color:#64748b; text-align:center;">Bereitgestellt von <a href="https://sommertrueffel.de" target="_blank" rel="noopener">sommertrueffel.de</a></p>`}</code>
+                <code>{`<iframe src="https://www.sommertrueffel.de/rechner-embed" width="100%" height="680" style="border:none; border-radius:16px;" title="Sommertrüffel Portionsrechner"></iframe>\n<p style="font-size:12px; color:#64748b; text-align:center;">Bereitgestellt von <a href="https://www.sommertrueffel.de" target="_blank" rel="noopener">sommertrueffel.de</a></p>`}</code>
               </div>
             </div>
           </div>
         </section>
 
+        {/* 4. Saisonkalender & Frische-Ratgeber */}
         <SeasonGuide />
-        <RecipeSection />
+
+        {/* 5. Rezept-Bibliothek (Vorschau auf Einzelseiten) */}
+        <RecipeSection onSelectRecipe={navigateToRecipe} />
+
+        {/* 6. Fach-FAQ */}
         <FaqSection />
 
         {/* E-E-A-T Editorial Trust Box */}
@@ -142,30 +262,30 @@ export const App: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-base font-bold text-slate-900">Fachredaktion sommertrueffel.de</h4>
-                  <p className="text-xs text-slate-500">Stand: September 2026 • Mykologisch &amp; warenkundlich geprüft (Tuber aestivum Vittad.)</p>
+                  <p className="text-xs text-slate-500">Stand: September 2026 • Mykologisch &amp; warenkundlich recherchiert (Tuber aestivum Vittad.)</p>
                 </div>
               </div>
               <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-600">
                 <div>
                   <div className="flex items-center gap-1.5 font-bold text-slate-900 mb-1">
                     <Utensils className="w-4 h-4 text-amber-700" />
-                    <span>Botanische Echtheitsprüfung</span>
+                    <span>Warenkunde &amp; Echtheitsprüfung</span>
                   </div>
-                  <p>Klare Abgrenzung des echten Sommertrüffels gegen minderwertige Fälschungen oder synthetische Aromastoffe (2,4-Dithiapentan).</p>
+                  <p>Klare Abgrenzung des echten Sommertrüffels gegen minderwertige Fälschungen (Chinatrüffel) oder synthetische Aromastoffe (2,4-Dithiapentan).</p>
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5 font-bold text-slate-900 mb-1">
                     <ShieldCheck className="w-4 h-4 text-amber-700" />
                     <span>Transparente Einkaufshilfen</span>
                   </div>
-                  <p>Unabhängige Marktübersichten und fundierte Zubereitungshinweise ohne eigene Händlerbindung nach § 5 DDG.</p>
+                  <p>Unabhängige Marktübersichten und fundierte Einkaufskriterien mit klarer Partnerlink-Kennzeichnung.</p>
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5 font-bold text-slate-900 mb-1">
                     <Award className="w-4 h-4 text-amber-700" />
                     <span>Praxiserprobte Grammaturen</span>
                   </div>
-                  <p>Kalkulationsgrundlagen erarbeitet mit Gastronomie-Erfahrung für optimale Geschmacksentfaltung pro Speisengattung.</p>
+                  <p>Kalkulationsgrundlagen für Speisen mit fundierten Hinweisen zur schonenden Entfaltung der Trüffelaromen.</p>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, SlidersHorizontal, ExternalLink, ShieldAlert, Sparkles, Check, ArrowUpDown, Tag, Layers } from 'lucide-react';
+import { Search, ExternalLink, ShieldAlert, Sparkles, Check, Tag } from 'lucide-react';
 import { AFFILIATE_LINKS } from '../config/affiliate';
 
 export interface ProductItem {
@@ -15,7 +15,7 @@ export interface ProductItem {
   budgetRange: 'low' | 'mid' | 'high';
   usage: 'pasta' | 'fleisch' | 'fruehstueck' | 'geschenk' | 'pflege';
   usageLabel: string;
-  features: string[];
+  criteria: string[];
   partnerLink: string;
 }
 
@@ -25,20 +25,20 @@ const PRODUCTS: ProductItem[] = [
     id: 'k-25g',
     category: 'knollen',
     categoryLabel: 'Frische Knollen',
-    title: 'Frischer Sommertrüffel – Probierportion (ca. 25–30g)',
-    subtitle: 'Ganze Frischknolle für 2 Personen oder ein exklusives Pärchen-Dinner',
-    origin: 'Italien / Istrien',
-    tag: 'Probiergröße',
+    title: 'Frischer Sommertrüffel – Probiergröße (ca. 25–30g)',
+    subtitle: 'Suchidee für 2 Personen oder ein erstes Kennenlernen des Aromas',
+    origin: 'Suchkriterium: Italien / Istrien',
+    tag: 'Suchidee: 25–30g',
     priceNumeric: 10,
     priceModel: 'ca. 8,90 € – 12,50 € *',
     budgetRange: 'low',
     usage: 'pasta',
     usageLabel: 'Pasta & Risotto',
-    features: [
-      'Ganze Knolle mit fester Rinde im Kühlakku versandt',
-      'Reicht ideal für 2 reichhaltige Teller Pasta al Tartufo',
+    criteria: [
+      'Empfohlenes Kriterium: Auf Ausweisung als Tuber aestivum achten',
+      'Portionsgröße reicht ideal für 2 Teller Pasta al Tartufo (ca. 12–15g/P.)',
       'Minimiert Restmengen – ideal für den Ersteinsteiger',
-      'Sorgsam vorgebürstet, sofort verzehrbereit'
+      'Auf schnellen Versand mit Kühlverpackung beim Anbieter achten'
     ],
     partnerLink: AFFILIATE_LINKS.sommertrueffel25g
   },
@@ -47,19 +47,19 @@ const PRODUCTS: ProductItem[] = [
     category: 'knollen',
     categoryLabel: 'Frische Knollen',
     title: 'Frischer Sommertrüffel (Tuber aestivum) – 50g Klassik',
-    subtitle: 'Die beliebteste Familiengröße für 4 Personen Menüabende',
-    origin: 'Umbrien / Toskana (Italien)',
-    tag: 'Bestseller',
+    subtitle: 'Suchidee für ein 4-Personen-Menü oder zwei reichhaltige Abende',
+    origin: 'Suchkriterium: Italien / Mitteleuropa',
+    tag: 'Suchidee: 50g',
     priceNumeric: 17,
     priceModel: 'ca. 14,50 € – 19,50 € *',
     budgetRange: 'low',
     usage: 'pasta',
     usageLabel: 'Pasta & Risotto',
-    features: [
-      'Ausgewählte feste Einzelknolle oder 2 harmonische Knollen',
-      'Ausreichend für 4 großzügige Hauptgänge (12–15g/Portion)',
-      'Helle, elfenbeinfarbene bis haselnussbraune Marmorierung',
-      'Gekühlter 24h-Express-Versand über verifizierte Partner'
+    criteria: [
+      'Ausreichend für 4 Hauptgang-Portionen (ca. 12–15g pro Teller)',
+      'Auf feste Knollenkonsistenz und unbeschädigte Rinde achten',
+      'Helle, elfenbeinfarbene bis haselnussbraune Marmorierung der Gleba',
+      'Gekühlten Express-Versand des jeweiligen Händlers prüfen'
     ],
     partnerLink: AFFILIATE_LINKS.sommertrueffel50g
   },
@@ -67,20 +67,20 @@ const PRODUCTS: ProductItem[] = [
     id: 'k-100g',
     category: 'knollen',
     categoryLabel: 'Frische Knollen',
-    title: 'Frischer Sommertrüffel – Gourmet-Selektion (100g)',
-    subtitle: 'Größere Kaliber für Festessen, Mehrgang-Menüs und 6–8 Gäste',
-    origin: 'Piemont / Norditalien',
-    tag: 'Mehrgang-Menü',
+    title: 'Frischer Sommertrüffel – Menü-Selektion (100g)',
+    subtitle: 'Suchidee für Mehrgang-Menüs, Festessen und 6–8 Gäste',
+    origin: 'Suchkriterium: EU-Herkunft',
+    tag: 'Suchidee: 100g',
     priceNumeric: 32,
     priceModel: 'ca. 26,00 € – 36,00 € *',
     budgetRange: 'mid',
     usage: 'fleisch',
     usageLabel: 'Fleisch & Pasta',
-    features: [
-      'Repräsentative Knollen mit besonders ausgeprägter Warzenrinde',
-      'Reicht für Vorspeise (Carpaccio) UND Hauptgang (Tagliata/Risotto)',
-      'Aromasichere Vakuum- oder Glasverpackung mit Kühlmedium',
-      'Inklusive Frischezertifikat und Pflegehinweisen'
+    criteria: [
+      'Reicht für Vorspeise (z. B. Carpaccio) UND Hauptgang (Risotto / Tagliata)',
+      'Größere Knollen kaliberbezogen auswählen',
+      'Händlerbewertungen hinsichtlich Frische und Verpackung abgleichen',
+      'Verarbeitung innerhalb von 3–5 Tagen nach Empfang einplanen'
     ],
     partnerLink: AFFILIATE_LINKS.sommertrueffel100g
   },
@@ -88,20 +88,20 @@ const PRODUCTS: ProductItem[] = [
     id: 'k-250g',
     category: 'knollen',
     categoryLabel: 'Frische Knollen',
-    title: 'Sommertrüffel Großpackung – Vorrat & Feinschmecker (250g)',
-    subtitle: 'Für passionierte Hobbyköche, Familienfeste oder zur Trüffelbutter-Produktion',
-    origin: 'Mitteleuropa / Südeuropa',
-    tag: 'Vorrats-Vorteil',
+    title: 'Sommertrüffel Vorratspackung (250g)',
+    subtitle: 'Suchidee für passionierte Hobbyköche oder zur Trüffelbutter-Vorratsproduktion',
+    origin: 'Suchkriterium: Mittel-/Südeuropa',
+    tag: 'Suchidee: Vorrat',
     priceNumeric: 69,
     priceModel: 'ca. 59,00 € – 79,00 € *',
     budgetRange: 'high',
     usage: 'pflege',
     usageLabel: 'Vorrat & Festessen',
-    features: [
-      'Attraktiver Kilopreis für größere Gesellschaften',
-      'Perfekt, um eigene Trüffelbutter für das ganze Jahr einzufrieren',
-      'Strikte Sortierung auf maximale Härte und Frische',
-      'Direkte Erntefrische ohne lange Zwischenlagerung'
+    criteria: [
+      'Günstigerer Kilopreis bei größeren Gebinden',
+      'Ideal, um eigene Sommertrüffel-Butter portionsweise einzufrieren',
+      'Lieferzeitfenster mit dem Händler vorab abstimmen',
+      'Sofortige Prüfung der Knollenfestigkeit bei Erhalt'
     ],
     partnerLink: AFFILIATE_LINKS.sommertrueffel250g
   },
@@ -109,20 +109,20 @@ const PRODUCTS: ProductItem[] = [
     id: 'k-500g',
     category: 'knollen',
     categoryLabel: 'Frische Knollen',
-    title: 'Sommertrüffel Großgebinde – Gastronomie & Feste (500g)',
-    subtitle: 'Für größere Events, Gastronomie-Bedarf oder große Gesellschaften',
-    origin: 'Italien / Mitteleuropa',
-    tag: 'Gastro-Vorteil',
+    title: 'Sommertrüffel Großgebinde (500g)',
+    subtitle: 'Suchidee für Feiern, Gastronomie oder große Gesellschaften',
+    origin: 'Suchkriterium: Europa',
+    tag: 'Suchidee: Großgebinde',
     priceNumeric: 129,
     priceModel: 'ca. 110,00 € – 145,00 € *',
     budgetRange: 'high',
     usage: 'pflege',
     usageLabel: 'Gastronomie & Vorrat',
-    features: [
-      'Bester Kilopreis für Großverbraucher und gehobene Küchen',
-      'Handverlesene, druckfeste Knollen in Schutz-Kühlverpackung',
-      'Ideal für große Gesellschaften oder hausgemachte Trüffelbutter-Chargen',
-      'Garantierte Kühlketten-Lieferung via Express-Kurier'
+    criteria: [
+      'Attraktive Großmengen-Kalkulation',
+      'Expressversand mit ausreichender Kühlreserve zwingend erforderlich',
+      'Vorab-Absprache des genauen Liefertags beim Händler ratsam',
+      'Haltbarmachung überschüssiger Mengen über Trüffelbutter empfohlen'
     ],
     partnerLink: AFFILIATE_LINKS.sommertrueffelFrisch
   },
@@ -132,20 +132,20 @@ const PRODUCTS: ProductItem[] = [
     id: 'z-olivenholz',
     category: 'zubehoer',
     categoryLabel: 'Hobel & Werkzeuge',
-    title: 'Klassischer Trüffelhobel aus massivem Olivenholz',
-    subtitle: 'Traditionelle italienische Handwerkskunst mit individueller Holzmaserung',
-    origin: 'Italienische Manufaktur',
-    tag: 'Gourmet-Klassiker',
+    title: 'Trüffelhobel aus Olivenholz (verstellbar)',
+    subtitle: 'Suchidee für traditionelle Holzoptik mit stufenloser Edelstahlklinge',
+    origin: 'Suchkriterium: Olivenholz massiv',
+    tag: 'Suchidee: Olivenholz',
     priceNumeric: 28,
     priceModel: 'ca. 24,90 € – 29,90 € *',
     budgetRange: 'mid',
     usage: 'pflege',
     usageLabel: 'Zubereitung & Tisch',
-    features: [
-      'Stufenlos verstellbare Rasiermesserklinge aus rostfreiem Edelstahl',
-      'Schnittstärke von hauchfeinen 0,2 mm bis 3 mm exakt justierbar',
-      'Warmes, geöltes Olivenholz – liegt rutschfest und edel in der Hand',
-      'Schneidet saubere Scheiben ohne das poröse Pilzgewebe zu zerdrücken'
+    criteria: [
+      'Auf stufenlos justierbare Rasiermesserklinge aus Edelstahl achten',
+      'Schnittstärkenbereich von hauchfein (0,2 mm) bis ca. 2 mm prüfen',
+      'Naturholz liegt angenehm in der Hand, gehört aber nicht in die Spülmaschine',
+      'Auch vielseitig für Hartkäse, Knoblauch oder Schokolade nutzbar'
     ],
     partnerLink: AFFILIATE_LINKS.trueffelhobelOlivenholz
   },
@@ -153,20 +153,20 @@ const PRODUCTS: ProductItem[] = [
     id: 'z-edelstahl',
     category: 'zubehoer',
     categoryLabel: 'Hobel & Werkzeuge',
-    title: 'Profi-Trüffelhobel aus Voll-Edelstahl (18/10)',
-    subtitle: 'Gastronomie-Standard, spülmaschinengeeignet & unverwüstlich',
-    origin: 'Solingen / EU',
-    tag: 'Gastro-Qualität',
+    title: 'Profi-Trüffelhobel aus Edelstahl',
+    subtitle: 'Suchidee für pflegeleichte, spülmaschinengeeignete Metallhobel',
+    origin: 'Suchkriterium: Edelstahl rostfrei',
+    tag: 'Suchidee: Edelstahl',
     priceNumeric: 22,
     priceModel: 'ca. 21,90 € – 24,90 € *',
     budgetRange: 'mid',
     usage: 'pflege',
     usageLabel: 'Zubereitung & Gastro',
-    features: [
-      'Hygienischer, säurebeständiger Edelstahl 18/10',
-      'Lasergeschliffene Schneide für extrem präzisen Spanschnitt',
-      'Integrierte Rändelschraube mit Arretierung gegen Verstellen',
-      'Auch exzellent für Parmesan, Hartkäse, Knoblauch und Schokolade'
+    criteria: [
+      'Hygienischer, rostfreier Edelstahl',
+      'Präzise Rändelschraube zur Justierung der Schnittstärke',
+      'Leichte Reinigung und Spülmaschinentauglichkeit',
+      'Schneidet saubere Scheiben ohne das poröse Pilzgewebe zu zerdrücken'
     ],
     partnerLink: AFFILIATE_LINKS.trueffelhobelEdelstahl
   },
@@ -174,20 +174,20 @@ const PRODUCTS: ProductItem[] = [
     id: 'z-buerste',
     category: 'zubehoer',
     categoryLabel: 'Hobel & Werkzeuge',
-    title: 'Spezielle Trüffel- & Pilzbürste mit Naturborsten',
-    subtitle: 'Schonende Trockenreinigung ohne Aromaverlust durch Wasser',
-    origin: 'Deutschland / Schwarzwald',
-    tag: 'Pflege-Must-Have',
+    title: 'Trüffel- & Pilzbürste mit Naturborsten',
+    subtitle: 'Suchidee zur schonenden Reinigung der warzigen Trüffelrinde',
+    origin: 'Suchkriterium: Naturborsten',
+    tag: 'Suchidee: Bürste',
     priceNumeric: 12,
     priceModel: 'ca. 9,90 € – 13,50 € *',
     budgetRange: 'low',
     usage: 'pflege',
     usageLabel: 'Pflege & Haltbarkeit',
-    features: [
-      'Dichte, mittelfeste Naturborsten (Rosshaar/Pflanzenfaser)',
-      'Befreit die tiefen Rillenzwischenräume der Warzenhaut schonend von Erde',
-      'Verhindert das schädliche Waschen im Wasserbad',
-      'Ergonomischer Griff aus naturbelassenem Buchenholz'
+    criteria: [
+      'Mittelfeste Borsten zur Entfernung von Erdresten aus den Rillen',
+      'Schonende Rindenreinigung vor dem Verzehr',
+      'Bei hartnäckiger Erde mit kurzem kaltem Wasserabspülen kombinierbar',
+      'Handlicher Holz- oder Kunststoffgriff'
     ],
     partnerLink: AFFILIATE_LINKS.trueffelbuerste
   },
@@ -195,20 +195,20 @@ const PRODUCTS: ProductItem[] = [
     id: 'z-behälter',
     category: 'zubehoer',
     categoryLabel: 'Hobel & Werkzeuge',
-    title: 'Aromasichere Trüffel-Frischebox mit Belüftungsventil',
-    subtitle: 'Luftdichtes Vorratsglas mit Feuchtigkeits-Management für den Kühlschrank',
-    origin: 'Qualitätsglas',
-    tag: 'Frische-Garantie',
+    title: 'Luftdichtes Vorratsglas mit Dichtung',
+    subtitle: 'Suchidee zur geruchsdichten Kühlschranklagerung',
+    origin: 'Suchkriterium: Bügelglas / Schraubdeckel',
+    tag: 'Suchidee: Lagerung',
     priceNumeric: 15,
     priceModel: 'ca. 12,90 € – 16,90 € *',
     budgetRange: 'low',
     usage: 'pflege',
     usageLabel: 'Aufbewahrung',
-    features: [
-      'Verhindert, dass der gesamte Kühlschrank nach Trüffel riecht',
-      'Optimale Größe für Küchenpapier-Wicklung und Knolle',
-      'BPA-freier Silikon-Dichtungsring und Edelstahl-Bügelverschluss',
-      'Ideal auch zum gleichzeitigen Aromatisieren von Eiern oder Risottoreis'
+    criteria: [
+      'Verhindert Aromenübertragung auf andere Lebensmittel im Kühlschrank',
+      'Ausreichend Volumen für Küchenpapier-Wicklung der Knolle',
+      'Leicht zu reinigendes Glas mit zuverlässiger Dichtung',
+      'Geeignet zum gleichzeitigen Aromatisieren von Eiern oder Reis'
     ],
     partnerLink: AFFILIATE_LINKS.trueffelbehaelter
   },
@@ -218,20 +218,20 @@ const PRODUCTS: ProductItem[] = [
     id: 'f-butter',
     category: 'feinkost',
     categoryLabel: 'Feinkost & Öle',
-    title: 'Trüffelbutter mit echten Sommertrüffel-Stücken (80g)',
-    subtitle: 'Frische Sauerrahm-Fassbutter mit echtem Tuber aestivum',
-    origin: 'Südtirol / Italien',
-    tag: 'Pasta-Veredler',
+    title: 'Trüffelbutter mit Sommertrüffel',
+    subtitle: 'Suchidee für fertige Trüffelbutter als schnelle Küchenbasis',
+    origin: 'Suchkriterium: Echte Trüffelanteile',
+    tag: 'Suchidee: Trüffelbutter',
     priceNumeric: 12,
     priceModel: 'ca. 9,90 € – 13,90 € *',
     budgetRange: 'low',
     usage: 'pasta',
     usageLabel: 'Pasta & Steak',
-    features: [
-      'Mindestens 5% echte, sichtbare Sommertrüffel-Stückchen',
-      'Vollkommen frei von künstlichen Aromastoffen (2,4-Dithiapentan)',
-      'Schmilzt wunderbar sämig auf heißer Pasta oder rosa Rinderfilet',
-      'Gekühlt haltbar bis zu 4 Wochen, problemlos portionsweise einfrierbar'
+    criteria: [
+      'Zutatenliste prüfen: Ausweisung echter Sommertrüffel (Tuber aestivum)',
+      'Verzicht auf künstliches 2,4-Dithiapentan bevorzugen',
+      'Ideal zum schnellen Montieren von Pasta oder Finish auf Steaks',
+      'Gekühlt lagern oder portionsweise einfrieren'
     ],
     partnerLink: AFFILIATE_LINKS.trueffelbutter
   },
@@ -239,20 +239,20 @@ const PRODUCTS: ProductItem[] = [
     id: 'f-carpaccio',
     category: 'feinkost',
     categoryLabel: 'Feinkost & Öle',
-    title: 'Sommertrüffel-Carpaccio in Olivenöl Extra Vergine',
-    subtitle: 'Gebrauchsfertig gehobelte Trüffelscheiben im Glas',
-    origin: 'Umbrien',
-    tag: 'Ganzjährig haltbar',
+    title: 'Sommertrüffel-Carpaccio im Glas',
+    subtitle: 'Suchidee für eingelegte Trüffelscheiben in Olivenöl',
+    origin: 'Suchkriterium: In nativem Olivenöl',
+    tag: 'Suchidee: Glas-Carpaccio',
     priceNumeric: 16,
     priceModel: 'ca. 14,90 € – 18,50 € *',
     budgetRange: 'low',
     usage: 'fleisch',
     usageLabel: 'Carpaccio & Vorspeisen',
-    features: [
-      'Hauchdünne, unversehrte Scheiben von Tuber aestivum',
-      'Eingelegt in feinstem nativem Olivenöl Extra Vergine und Eigensaft',
-      'Lange ungekühlt haltbar – die Rettung, wenn keine Frischtrüffelsaison ist',
-      'Das aromatisierte Öl im Glas eignet sich hervorragend als Salatdressing'
+    criteria: [
+      'Bereits gebrauchsfertig gehobelte Trüffelscheiben',
+      'Ungeöffnet lange haltbar – praktische Reserve außerhalb der Erntesaison',
+      'Auf Qualität des Trägeröls (Olivenöl Extra Vergine) achten',
+      'Nach dem Öffnen stets mit Öl bedeckt im Kühlschrank aufbewahren'
     ],
     partnerLink: AFFILIATE_LINKS.trueffelcarpaccio
   },
@@ -260,43 +260,43 @@ const PRODUCTS: ProductItem[] = [
     id: 'f-öl',
     category: 'feinkost',
     categoryLabel: 'Feinkost & Öle',
-    title: 'Natives Olivenöl Extra mit natürlichem Sommertrüffel (100ml)',
-    subtitle: 'Kaltgepresstes ligurisches Olivenöl mit echten Trüffelauszügen',
-    origin: 'Ligurien / Toskana',
-    tag: 'Naturbelassen',
+    title: 'Natives Olivenöl mit Sommertrüffel',
+    subtitle: 'Suchidee für Speiseöl mit natürlichem Trüffelauszug',
+    origin: 'Suchkriterium: Natives Olivenöl Extra',
+    tag: 'Suchidee: Trüffelöl',
     priceNumeric: 14,
     priceModel: 'ca. 12,50 € – 15,90 € *',
     budgetRange: 'low',
     usage: 'fleisch',
     usageLabel: 'Finish & Salate',
-    features: [
-      'Rein mechanische Kaltpressung (erste Güteklasse)',
-      'Subtiles, nussiges Aroma ohne chemischen Schwefelgeruch',
-      'Sparsam dosierbar: Wenige Tropfen genügen über Rührei oder Risotto',
-      'Inklusive Trüffelstückchen im Flaschenboden'
+    criteria: [
+      'Etikettencheck: Nach natürlichem Trüffelextrakt suchen',
+      'Produkte ohne penetrantes synthetisches Aroma bevorzugen',
+      'Sparsam tropfenweise über Rührei, Risotto oder Carpaccio dosieren',
+      'Dunkel und kühl lagern, um Oxydation zu vermeiden'
     ],
     partnerLink: AFFILIATE_LINKS.trueffeloel
   },
 
-  // --- KATEGORIE: GEWÜRZE & CREMES ---
+  // --- KATEGORIE: GEWÜRZE & SAUCEN ---
   {
     id: 'g-salz',
     category: 'gewuerze',
     categoryLabel: 'Gewürze & Saucen',
-    title: 'Guerande-Meersalz mit getrocknetem Sommertrüffel (100g)',
-    subtitle: 'Handgeschöpftes Atlantik-Meersalz für das perfekte Tisch-Finish',
-    origin: 'Bretagne / Italien',
-    tag: 'Gewürz-Allrounder',
+    title: 'Meersalz mit getrocknetem Sommertrüffel',
+    subtitle: 'Suchidee für feines Trüffelsalz zum Nachwürzen am Tisch',
+    origin: 'Suchkriterium: Meersalz / Fleur de Sel',
+    tag: 'Suchidee: Trüffelsalz',
     priceNumeric: 11,
     priceModel: 'ca. 8,90 € – 12,90 € *',
     budgetRange: 'low',
     usage: 'fleisch',
     usageLabel: 'Steaks & Pommes',
-    features: [
-      'Grobe, feuchte Meersalzflocken mit hoher Mineralstoffdichte',
-      'Fein vermahlen mit schonend getrocknetem Sommertrüffel',
-      'Verleiht Bratkartoffeln, Pommes Frites, Rührei und Steaks Gourmet-Note',
-      'Praktisches Aromaglas mit luftdichtem Frischedeckel'
+    criteria: [
+      'Gutes Meersalz oder Fleur de Sel mit sichtbaren Trüffelstückchen',
+      'Vielseitig einsetzbar für Eierspeisen, Bratkartoffeln oder Grillfleisch',
+      'Immer erst kurz vor dem Servieren aufstreuen, nicht mitkochen',
+      'Luftdicht verschlossen aufbewahren'
     ],
     partnerLink: AFFILIATE_LINKS.trueffelsalz
   },
@@ -304,20 +304,20 @@ const PRODUCTS: ProductItem[] = [
     id: 'g-honig',
     category: 'gewuerze',
     categoryLabel: 'Gewürze & Saucen',
-    title: 'Akazienhonig mit Sommertrüffelscheiben (120g)',
-    subtitle: 'Süß-würzige Harmonie zu Pecorino, Ziegenkäse & Gorgonzola',
-    origin: 'Piemont',
-    tag: 'Käse-Begleiter',
+    title: 'Akazienhonig mit Sommertrüffel',
+    subtitle: 'Suchidee für süß-würzige Kombinationen zu gereiftem Käse',
+    origin: 'Suchkriterium: Akazienhonig',
+    tag: 'Suchidee: Trüffelhonig',
     priceNumeric: 13,
     priceModel: 'ca. 11,50 € – 14,90 € *',
     budgetRange: 'low',
     usage: 'fruehstueck',
     usageLabel: 'Käse & Brunch',
-    features: [
-      'Klarer, flüssiger Bio-Akazienhonig aus Norditalien',
-      'Mit eingelegten Trüffelspänen durchzogen',
-      'Genial zu Ziegenfrischkäse, gereiftem Parmesan oder Ente',
-      'Edles Geschenkglas für die Gourmet-Käseplatte'
+    criteria: [
+      'Milder Akazienhonig überdeckt den Trüffel nicht',
+      'Klassischer Begleiter zu Pecorino, Parmesan oder Ziegenkäse',
+      'Auch zur Veredelung von warmem Ziegenkäse auf Röstbrot geeignet',
+      'Lange ungekühlt haltbar'
     ],
     partnerLink: AFFILIATE_LINKS.trueffelhonig
   },
@@ -325,43 +325,43 @@ const PRODUCTS: ProductItem[] = [
     id: 'g-tartufata',
     category: 'gewuerze',
     categoryLabel: 'Gewürze & Saucen',
-    title: 'Tartufata – Umbrische Trüffelsauce mit Waldpilzen (180g)',
-    subtitle: 'Feine Pilz-Trüffel-Paste für Crostini, Saucen & Pasta',
-    origin: 'Umbrien',
-    tag: 'Saucen-Basis',
+    title: 'Tartufata – Pilz-Trüffel-Sauce',
+    subtitle: 'Suchidee für Würzpasten auf Pilz- und Trüffelbasis',
+    origin: 'Suchkriterium: Pilzsauce mit Trüffel',
+    tag: 'Suchidee: Tartufata',
     priceNumeric: 10,
     priceModel: 'ca. 8,50 € – 11,50 € *',
     budgetRange: 'low',
     usage: 'pasta',
     usageLabel: 'Bruschetta & Pasta',
-    features: [
-      'Kombination aus Champignons, Olivenöl, Sommertrüffel und Gewürzen',
-      'Blitzschnell: 1 EL unter heiße Nudeln mit etwas Sahne oder Butter rühren',
-      'Klassischer Belag für geröstetes toskanisches Brot (Crostini)',
-      'Sehr ergiebig und nach dem Öffnen mit Öl bedeckt im Kühlschrank haltbar'
+    criteria: [
+      'Traditionelle Kombination aus Champignons, Olivenöl und Trüffel',
+      'Schnelle Küchenhilfe für Crostini, Saucenansätze und Pasta',
+      'Zutatenverzeichnis auf den ausgewiesenen Trüffelanteil prüfen',
+      'Nach dem Öffnen mit Öl bedecken und im Kühlschrank lagern'
     ],
     partnerLink: AFFILIATE_LINKS.trueffelpesto
   },
 
-  // --- KATEGORIE: GESCHENKSETS & BOXEN ---
+  // --- KATEGORIE: GESCHENKSETS ---
   {
     id: 'set-starter',
     category: 'geschenke',
     categoryLabel: 'Geschenksets',
-    title: 'Trüffel-Starter-Geschenkbox (Hobel + Butter + Trüffelsalz)',
-    subtitle: 'Das Rundum-Sorglos-Set für ambitionierte Feinschmecker',
-    origin: 'Manufaktur-Zusammenstellung',
-    tag: 'Perfektes Geschenk',
+    title: 'Trüffel-Starterset (Hobel & Delikatessen)',
+    subtitle: 'Suchidee für Geschenkboxen mit Trüffelhobel und Feinkost',
+    origin: 'Suchkriterium: Gourmet-Präsent',
+    tag: 'Suchidee: Geschenkset',
     priceNumeric: 44,
     priceModel: 'ca. 39,90 € – 48,00 € *',
     budgetRange: 'mid',
     usage: 'geschenk',
     usageLabel: 'Geschenk & Starter',
-    features: [
-      'Enthält: Verstellbaren Trüffelhobel, Glas Trüffelsalz und echte Trüffelbutter',
-      'Stilvoll verpackt in stabiler Geschenk-Kassette mit Seidenpapier',
-      'Sofort einsatzbereit für den nächsten Kochabend',
-      'Inklusive kleiner Rezeptfibel für Tagliolini und Rührei'
+    criteria: [
+      'Set-Zusammenstellung prüfen (Hobel, Trüffelöl, Salz oder Butter)',
+      'Verarbeitungsqualität der Hobelklinge im Set beachten',
+      'Ansprechende Geschenkverpackung für Genießer',
+      'Kundenrezensionen zum Gesamtinhalt vergleichen'
     ],
     partnerLink: AFFILIATE_LINKS.trueffelGeschenkset
   },
@@ -369,50 +369,45 @@ const PRODUCTS: ProductItem[] = [
     id: 'set-pasta',
     category: 'geschenke',
     categoryLabel: 'Geschenksets',
-    title: 'Gourmet Pasta-Dinner-Set „Tartufo Estivo“ (Alles in einer Box)',
-    subtitle: 'Handgemachte Tagliolini, Trüffel-Carpaccio, Trüffelhobel & Olivenöl',
-    origin: 'Italienische Selektion',
-    tag: 'Komplett-Menü',
-    priceNumeric: 46,
+    title: 'Gourmet-Pastaset mit Trüffelspezialitäten',
+    subtitle: 'Suchidee für italienische Pasta-Sets mit Tagliolini und Trüffelsauce',
+    origin: 'Suchkriterium: Italienische Feinkost',
+    tag: 'Suchidee: Pasta-Set',
+    priceNumeric: 45,
     priceModel: 'ca. 42,00 € – 48,90 € *',
     budgetRange: 'mid',
     usage: 'geschenk',
-    usageLabel: 'Geschenk & Pasta',
-    features: [
-      'Original italienische Bronzematrizen-Tagliolini (500g)',
-      'Präzisions-Trüffelhobel mit Holzgriff und stufenloser Klinge',
-      '1 Glas Sommertrüffel-Carpaccio und 1 Fläschchen Trüffel-Olivenöl',
-      'Ergibt ein luxuriöses Pasta-Dinner für 4 bis 6 Personen'
+    usageLabel: 'Pasta & Dinner',
+    criteria: [
+      'Kombination aus Bronze-Matrizen-Pasta (Trafilata al bronzo) und Trüffelbutter/Sauce',
+      'Komplettpaket für einen unkomplizierten italienischen Feinschmeckerabend',
+      'Haltbarkeit der enthaltenen Produkte prüfen',
+      'Preisvergleich gegenüber Einzelerwerb durchführen'
     ],
     partnerLink: AFFILIATE_LINKS.trueffelPastaSet
   }
 ];
 
 export const TruffleFinder: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedUsage, setSelectedUsage] = useState<string>('all');
   const [selectedBudget, setSelectedBudget] = useState<string>('all');
   const [sortBy, setSortBy] = useState<'recommended' | 'price-asc' | 'price-desc'>('recommended');
 
   const filteredProducts = useMemo(() => {
-    const list = PRODUCTS.filter((item) => {
+    let list = PRODUCTS.filter((item) => {
       const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
       const matchesUsage = selectedUsage === 'all' || item.usage === selectedUsage;
-      const matchesBudget =
-        selectedBudget === 'all' ||
-        (selectedBudget === 'low' && item.priceNumeric < 20) ||
-        (selectedBudget === 'mid' && item.priceNumeric >= 20 && item.priceNumeric <= 50) ||
-        (selectedBudget === 'high' && item.priceNumeric > 50);
+      const matchesBudget = selectedBudget === 'all' || item.budgetRange === selectedBudget;
       
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
-        q === '' ||
+        !q ||
         item.title.toLowerCase().includes(q) ||
         item.subtitle.toLowerCase().includes(q) ||
         item.origin.toLowerCase().includes(q) ||
-        item.tag.toLowerCase().includes(q) ||
-        item.features.some((f) => f.toLowerCase().includes(q));
+        item.criteria.some((c) => c.toLowerCase().includes(q));
 
       return matchesCategory && matchesUsage && matchesBudget && matchesSearch;
     });
@@ -434,13 +429,13 @@ export const TruffleFinder: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-950 text-xs font-extrabold mb-3">
             <Sparkles className="w-3.5 h-3.5 text-amber-700" />
-            Produktdifferenzierung & Marktübersicht ({PRODUCTS.length} Artikel)
+            Suchideen &amp; Auswahlkriterien ({PRODUCTS.length} Kategorien)
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950 tracking-tight">
-            Sommertrüffel, Hobel & Feinkost gezielt finden
+            Marktübersicht &amp; Suchideen für Sommertrüffel
           </h2>
           <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
-            Wählen Sie nach Knollen-Grammatur (25g bis 250g), Preisbereich (&lt;20 €, 20–50 €, &gt;50 €), Materialart des Hobels (Olivenholz vs. Edelstahl) oder Feinkostspezialitäten. Alle Empfehlungen sind neutral nach Anwendungszweck gegliedert.
+            Nutzen Sie diese Kriterien und Suchideen, um gezielt nach frischen Knollen, robusten Hobeln und passender Feinkost auf Amazon zu suchen. Alle Preisspannen sind beispielhafte Modell-Kalkulationen zur Orientierung.
           </p>
         </div>
 
@@ -478,11 +473,11 @@ export const TruffleFinder: React.FC = () => {
                 className="w-full py-2.5 px-3 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-500"
               >
                 <option value="all">Alle Einsatzzwecke</option>
-                <option value="pasta">Pasta & Risotto</option>
-                <option value="fleisch">Fleisch & Steak</option>
-                <option value="fruehstueck">Frühstück & Käse</option>
-                <option value="geschenk">Geschenk & Starter</option>
-                <option value="pflege">Zubereitung & Pflege</option>
+                <option value="pasta">Pasta &amp; Risotto</option>
+                <option value="fleisch">Fleisch &amp; Steak</option>
+                <option value="fruehstueck">Frühstück &amp; Käse</option>
+                <option value="geschenk">Geschenk &amp; Starter</option>
+                <option value="pflege">Zubereitung &amp; Pflege</option>
               </select>
             </div>
 
@@ -525,7 +520,7 @@ export const TruffleFinder: React.FC = () => {
                   : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
               }`}
             >
-              Alle Artikel ({PRODUCTS.length})
+              Alle Rubriken ({PRODUCTS.length})
             </button>
             <button
               onClick={() => setSelectedCategory('knollen')}
@@ -545,7 +540,7 @@ export const TruffleFinder: React.FC = () => {
                   : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
               }`}
             >
-              Hobel & Werkzeuge (4)
+              Hobel &amp; Werkzeuge (4)
             </button>
             <button
               onClick={() => setSelectedCategory('feinkost')}
@@ -555,7 +550,7 @@ export const TruffleFinder: React.FC = () => {
                   : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
               }`}
             >
-              Feinkost & Öle (3)
+              Feinkost &amp; Öle (3)
             </button>
             <button
               onClick={() => setSelectedCategory('gewuerze')}
@@ -565,7 +560,7 @@ export const TruffleFinder: React.FC = () => {
                   : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300'
               }`}
             >
-              Gewürze & Saucen (3)
+              Gewürze &amp; Saucen (3)
             </button>
             <button
               onClick={() => setSelectedCategory('geschenke')}
@@ -632,10 +627,10 @@ export const TruffleFinder: React.FC = () => {
         {/* Results Counter */}
         <div className="flex items-center justify-between mb-6 px-1 text-xs text-slate-600 font-medium">
           <div>
-            Gefilterte Angebote: <strong className="text-slate-900">{filteredProducts.length}</strong> von {PRODUCTS.length}
+            Gefilterte Suchideen: <strong className="text-slate-900">{filteredProducts.length}</strong> von {PRODUCTS.length}
           </div>
           <div className="text-slate-500">
-            * Preisspannen als unverbindliche Modell-Kalkulation
+            * Preisspannen als unverbindliche Modell-Kalkulation (Stand 2026)
           </div>
         </div>
 
@@ -643,7 +638,7 @@ export const TruffleFinder: React.FC = () => {
         {filteredProducts.length === 0 ? (
           <div className="bg-slate-50 border border-dashed border-slate-300 rounded-2xl p-12 text-center">
             <ShieldAlert className="w-8 h-8 text-slate-400 mx-auto mb-2" />
-            <p className="text-base font-bold text-slate-800">Keine Produkte für Ihre Filterkombination gefunden.</p>
+            <p className="text-base font-bold text-slate-800">Keine Suchideen für Ihre Filterkombination gefunden.</p>
             <p className="text-xs text-slate-500 mt-1">Setzen Sie die Filter oder den Suchbegriff zurück.</p>
             <button
               onClick={() => {
@@ -652,9 +647,9 @@ export const TruffleFinder: React.FC = () => {
                 setSelectedBudget('all');
                 setSearchQuery('');
               }}
-              className="mt-4 px-4 py-2 bg-white border border-slate-300 rounded-xl text-xs font-bold text-slate-800 hover:bg-slate-100"
+              className="mt-4 px-4 py-2 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-slate-800 transition-colors"
             >
-              Filter zurücksetzen
+              Alle Filter zurücksetzen
             </button>
           </div>
         ) : (
@@ -696,14 +691,19 @@ export const TruffleFinder: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Bullet Features */}
-                  <div className="mt-4 space-y-2 pt-3 border-t border-slate-100">
-                    {item.features.map((feat, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-xs text-slate-700">
-                        <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                        <span>{feat}</span>
-                      </div>
-                    ))}
+                  {/* Recommended Selection Criteria */}
+                  <div className="mt-4 pt-3 border-t border-slate-100">
+                    <div className="text-[11px] font-bold text-slate-800 mb-2 uppercase tracking-wider">
+                      Empfohlene Auswahlkriterien:
+                    </div>
+                    <div className="space-y-1.5">
+                      {item.criteria.map((crit, idx) => (
+                        <div key={idx} className="flex items-start gap-2 text-xs text-slate-700">
+                          <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                          <span>{crit}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
@@ -714,8 +714,8 @@ export const TruffleFinder: React.FC = () => {
                       <span className="text-[11px] text-slate-500 block">Modell-Richtpreis:</span>
                       <span className="text-base font-extrabold text-slate-900">{item.priceModel}</span>
                     </div>
-                    <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                      Amazon Prime *
+                    <span className="text-[10px] font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                      Suchidee &amp; Kriterien
                     </span>
                   </div>
 
@@ -723,15 +723,15 @@ export const TruffleFinder: React.FC = () => {
                     href={item.partnerLink}
                     target="_blank"
                     rel="noopener noreferrer nofollow"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider py-3 px-4 rounded-xl shadow-sm border border-amber-600/30 transition-all"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider py-3 px-4 rounded-xl shadow-sm border border-amber-600/30 transition-all text-center"
                   >
-                    <span>Bei Amazon ansehen *</span>
+                    <span>Passende Angebote auf Amazon suchen *</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
 
                   <div className="text-center mt-2">
                     <span className="text-[10px] text-slate-500">
-                      * Amazon-Partnerlink (Tracking: sommertrueffel.de-21)
+                      * Amazon-Partnerlink (Suchabfrage mit Tracking: sommertrueffel.de-21)
                     </span>
                   </div>
                 </div>
