@@ -76,7 +76,7 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             <p className="text-slate-400 text-xs">
               Unabhängiges Fach- und Informationsportal.<br />
-              Kleinunternehmer nach § 19 UStG. Alle Angaben ohne Gewähr.<br />
+              Alle Angaben ohne Gewähr.<br />
               Vollständige Betreiberangaben siehe Impressum.
             </p>
             <div className="flex gap-4 pt-2">

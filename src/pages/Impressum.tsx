@@ -91,13 +91,6 @@ export const Impressum: React.FC<ImpressumProps> = ({ onBack }) => {
             </section>
 
             <section>
-              <h2 className="text-base font-bold text-slate-900 mb-2">Umsatzsteuer-Hinweis</h2>
-              <p className="font-medium text-slate-800">
-                Kleinunternehmer nach § 19 UStG. Es wird keine Umsatzsteuer berechnet.
-              </p>
-            </section>
-
-            <section>
               <h2 className="text-base font-bold text-slate-900 mb-2">
                 Verantwortlich für den Inhalt nach § 18 Abs. 2 Medienstaatsvertrag (MStV)
               </h2>
