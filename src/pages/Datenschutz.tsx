@@ -94,7 +94,7 @@ export const Datenschutz: React.FC<DatenschutzProps> = ({ onBack }) => {
                 <li>Datum und Uhrzeit der Serveranfrage</li>
               </ul>
               <p className="mt-2 text-xs text-slate-500">
-                Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der schnellen, stabilen und sicheren Auslieferung unseres Online-Angebots). Die Datenübertragung in die USA wird durch Standardvertragsklauseln (SCCs) der EU-Kommission sowie die Zertifizierung von Vercel unter dem EU-U.S. Data Privacy Framework abgesichert.
+                Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der schnellen, stabilen und sicheren Auslieferung unseres Online-Angebots). Die Datenübertragung in die USA ist durch die Zertifizierung von Vercel unter dem EU-U.S. Data Privacy Framework (DPF) abgesichert.
               </p>
             </section>
 
