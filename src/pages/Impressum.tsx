@@ -81,13 +81,6 @@ export const Impressum: React.FC<ImpressumProps> = ({ onBack }) => {
                   jens@kathe.org
                 </a>
               </p>
-              <p className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-slate-500" />
-                <span>Telefon:</span>
-                <a href="tel:+491786652623" className="text-amber-800 font-semibold hover:text-amber-900">
-                  +49 178 6652623
-                </a>
-              </p>
             </section>
 
             <section>

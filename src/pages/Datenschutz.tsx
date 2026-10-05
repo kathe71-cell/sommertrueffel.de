@@ -69,7 +69,6 @@ export const Datenschutz: React.FC<DatenschutzProps> = ({ onBack }) => {
                 <p className="font-bold text-slate-900">Jens Kathe</p>
                 <p>Hansastraße 6</p>
                 <p>34119 Kassel, Deutschland</p>
-                <p>Telefon: +49 178 6652623</p>
                 <p>E-Mail: <a href="mailto:jens@kathe.org" className="text-amber-800 underline">jens@kathe.org</a></p>
               </div>
             </section>
