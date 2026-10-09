@@ -77,7 +77,7 @@ export const App: React.FC<{ initialPath?: string }> = ({ initialPath }) => {
     }
     return '';
   };
-  const [currentView, setCurrentView] = useState<'home' | 'impressum' | 'datenschutz' | 'embed' | 'recipe'>(getInitialView);
+  const [currentView, setCurrentView] = useState<'home' | 'impressum' | 'datenschutz' | 'embed' | 'recipe' | 'projektuebernahme'>(getInitialView);
   const [selectedRecipeSlug, setSelectedRecipeSlug] = useState<string>(getInitialSlug);
   const [copiedEmbed, setCopiedEmbed] = useState<boolean>(false);
 
@@ -156,7 +156,8 @@ export const App: React.FC<{ initialPath?: string }> = ({ initialPath }) => {
     );
   }
 
-  if (currentView === 'projektuebernahme' ? <ProjektuebernahmePage /> : currentView === 'impressum') {
+  if (currentView === 'projektuebernahme') return <ProjektuebernahmePage />;
+  if (currentView === 'impressum') {
     return (
       <>
         <Impressum onBack={() => navigateTo('home')} />
