@@ -114,17 +114,13 @@ export const Datenschutz: React.FC<DatenschutzProps> = ({ onBack }) => {
               </p>
             </section>
 
-            {/* 4. Werbepartner & Google AdSense */}
             <section>
               <h2 className="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
                 <Megaphone className="w-4 h-4 text-slate-600" />
-                4. Werbepartner &amp; Google AdSense
               </h2>
               <p className="mb-2">
-                Auf sommertrueffel.de können über den Dienst <strong>Google AdSense</strong> der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland, Werbeanzeigen eingebunden werden.
               </p>
               <p className="mb-2">
-                Google AdSense verwendet Technologien wie Cookies oder Web Beacons (unsichtbare Grafiken), um die Ausspielung, Relevanz und Vergütung von Werbeanzeigen zu steuern. Sofern Werbeanzeigen ausgespielt werden, können Daten über die Nutzung dieser Website (einschließlich Ihrer IP-Adresse) an Server von Google übertragen und dort verarbeitet werden.
               </p>
               <p className="text-xs text-slate-500">
                 Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) bzw. Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen zur Datennutzung durch Google finden Sie unter:{' '}

@@ -1,3 +1,4 @@
+import ProjektuebernahmePage from "./pages/ProjektuebernahmePage";
 import React, { useState, useEffect } from 'react';
 import ScrollToTop from './components/ScrollToTop';
 import { Header } from './components/Header';
@@ -155,7 +156,7 @@ export const App: React.FC<{ initialPath?: string }> = ({ initialPath }) => {
     );
   }
 
-  if (currentView === 'impressum') {
+  if (currentView === 'projektuebernahme' ? <ProjektuebernahmePage /> : currentView === 'impressum') {
     return (
       <>
         <Impressum onBack={() => navigateTo('home')} />
